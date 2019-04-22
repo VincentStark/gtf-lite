@@ -1,0 +1,20 @@
+- provide(:title, 'About')
+.page-header
+  %h1
+    About
+.row
+  .col-md-8.well
+    %h2 Why is this all?
+    %p
+      Ever wondered, how
+      = link_to 'Google Autocomplete', 'http://support.google.com/websearch/bin/answer.py?hl=en&answer=106230', target: '_blank'
+      works? How it decides which phrases to offer?
+    %p
+      Maybe you were just curious how many gems
+      = link_to 'like', 'http://failblog.org/tag/autocomplete-me', target: '_blank'
+      = link_to 'these', 'http://www.searchenginepeople.com/blog/google-autocomplete-fails.html', target: '_blank'
+      are remain to be found?
+    %p
+      This tool goes through the list of the most popular English words and feeds them to
+      Google Autocomplete API. Results are updated daily, and if we're finding something
+      that looks like a website, we put it in a separate table.

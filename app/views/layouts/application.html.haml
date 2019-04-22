@@ -1,0 +1,37 @@
+!!!
+%html
+  %head
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= content_for?(:title) ? ENV['TITLE'] + ' - ' + yield(:title) : ENV['TITLE']
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : ENV['TITLE']}"}
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag 'application', 'fb-sdk'
+    = javascript_include_tag 'application', 'twitter'
+    = csrf_meta_tags
+  %body
+    %header
+      = render 'layouts/navigation'
+    %main{:role => "main"}
+      = render 'layouts/messages'
+      .container
+        = yield
+    %footer
+      .container
+        %ul.nav.nav-pills.pull-left
+          %li{class: current_page?(about_path) ? 'active' : nil}= link_to 'About', about_path
+          %li{class: current_page?(feedback_path) ? 'active' : nil}= link_to 'Feedback', feedback_path
+        %ul.nav.nav-pills.pull-right
+          %li.social-icons
+            .fb-like{'data-font' => 'arial',
+                     'data-href' => 'http://global-trend-finder.com',
+                     'data-layout' => 'button_count',
+                     'data-send' => 'false',
+                     'data-show-faces' => 'true',
+                     'data-width' => '150'}
+          %li.social-icons
+            %a.twitter-share-button{'data-hashtags' => 'globaltf,google',
+                                    'data-lang' => 'en',
+                                    'data-text' => 'Fun Google Autocomplete Queries',
+                                    'data-url' => 'http://global-trend-finder.com',
+                                    href: 'https://twitter.com/share'} Tweet

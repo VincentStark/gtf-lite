@@ -1,0 +1,14 @@
+- provide(:title, @keyword.name)
+= javascript_include_tag 'application', 'highcharts/highcharts.js'
+:coffeescript
+  ready = ->
+    $.fn.showChart(#{@chart_data.to_json})
+  $(document).ready(ready)
+  $(document).on('page:load', ready)
+.page-header
+  %h1
+    = @keyword.name
+.row
+  #chart.col-md-8.well
+%h3
+  = link_to '< Back to Keywords', keywords_path

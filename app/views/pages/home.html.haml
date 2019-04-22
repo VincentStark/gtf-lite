@@ -1,0 +1,15 @@
+.page-header
+  %h1
+    Top 10 Keywords
+.row
+  .col-md-8.well
+    .row
+      .col-md-8
+        %h4
+          Keyword
+      .col-md-4
+        %h4
+          No. of Searches
+    = render @keywords
+%h3
+  = link_to 'Show More >', keywords_path

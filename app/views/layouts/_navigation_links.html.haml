@@ -1,0 +1,4 @@
+%li{class: current_page?(root_path) ? 'active' : nil}
+  = link_to 'Home', root_path
+%li{class: current_page?(keywords_path) ? 'active' : nil}
+  = link_to 'Keywords', keywords_path

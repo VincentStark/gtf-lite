@@ -1,0 +1,19 @@
+- provide(:title, 'Keywords')
+.page-header
+  %h1
+    Keywords
+= search_form_for @search do |f|
+  = f.label :name_cont, "Keyword contains"
+  = f.text_field :name_cont
+  = f.submit "Search"
+= will_paginate @keywords, renderer: BootstrapPagination::Rails
+.row
+  .col-md-8.well
+    .row
+      .col-md-8
+        %h4
+          = sort_link @search, :name, 'Keyword'
+      .col-md-4
+        %h4
+          = sort_link @search, :searches, 'No. of Searches'
+    = render @keywords
